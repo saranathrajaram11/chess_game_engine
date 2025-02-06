@@ -41,8 +41,6 @@ class chess{
      arr[7][4]=peices[11];
      }
 
-
-
      void print_board()
      {
       for(int m=0;m<rows;m++)
@@ -55,16 +53,6 @@ class chess{
      }
 
 };
-
-
-
-
-
-
-
-
-
-
 
 
 
