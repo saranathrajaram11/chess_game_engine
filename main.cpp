@@ -54,12 +54,6 @@ class chess{
 
 };
 
-
-
-
-
-
-
 int main()
 {
   chess c;
