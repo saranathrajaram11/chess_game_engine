@@ -3,7 +3,7 @@ using namespace std;
 
 class chess{
   public:
-     static const int rows=8,cols=8;
+     static const int rows=8,cols=8;  
      char arr[rows][cols];
      char peices[13]={'p','r','n','b','q','k','P','R','N','B','Q','K','.'};
      void assign_board()
@@ -52,11 +52,43 @@ class chess{
       }
      }
 
+     vector<std::pair<int , int>> knight_moves(int m, int n)
+     {
+      vector <std::pair<int, int>> moves={
+        {rows + 2, cols + 1}, {rows + 2, cols - 1}, {rows - 2, cols + 1}, {rows - 2, cols - 1},
+            {rows + 1, cols + 2}, {rows + 1, cols - 2}, {rows - 1, cols + 2}, {rows - 1, cols - 2}
+      } ;
+      vector<std::pair<int,int>> true_moves;
+      for(auto m :moves)
+      {
+int new_m =m.first, new_n=m.second;
+  if (new_m >= 0 && new_m < rows && new_n >= 0 && new_n < cols)
+{
+  true_moves.push_back({new_m,new_n});
+}
+
+      }
+      return true_moves;
+     }
+
 };
+
+
+
+
 
 int main()
 {
   chess c;
   c.assign_board();
   c.print_board();
+  int k_m,k_n;
+  cin >> k_m >>k_n;
+  vector<std::pair<int,int>>  movee=c.knight_moves(k_m,k_n);
+  for(auto f : movee)
+  {
+    cout<<"("<<f.first <<" "<<f.second<<")";
+  }
+  return 0;
+
 }
